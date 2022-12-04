@@ -1,5 +1,6 @@
 mod day1;
 mod day2;
+mod day3;
 
 fn main() {
     let args = std::env::args()
@@ -14,5 +15,6 @@ fn main() {
     let filename = &args[1];
 
     // day1::day1(filename.into()).unwrap();
-    day2::day2(&filename.into()).unwrap();
+    // day2::day2(&filename.into()).unwrap();
+    day3::day3(&filename.into()).unwrap();
 }

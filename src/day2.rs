@@ -7,7 +7,7 @@ use std::{path::PathBuf, io::{BufReader, BufRead, Lines}, fs::File, cmp::Orderin
 /// lost -> 0  
 /// draw -> 3  
 /// won  -> 6  
-#[derive(PartialEq, Debug, Clone)]
+#[derive(PartialEq, Debug)]
 enum RockPaperScissors {
     Rock,
     Paper,
@@ -181,7 +181,7 @@ fn part2(path: &PathBuf) -> std::io::Result<()> {
         let game_result: GameResult = round[1].into();
 
         let you = match game_result {
-            GameResult::Draw => opponent.clone(),
+            GameResult::Draw => opponent,
             GameResult::Lose => opponent.generate_failer(),
             GameResult::Win => opponent.generate_winner(),
         };

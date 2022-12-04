@@ -32,7 +32,7 @@ pub fn day1(path: PathBuf) -> std::io::Result<()> {
 
     println!("day1 part1 max: {}", max);
     // println!("top3: {:#?}", top3);
-    println!("day1 part2 sum of top3: {}", top3[0] + top3[1] + top3[2]);
+    println!("day1 part2 sum of top3: {}", top3.into_iter().sum::<u64>());
 
     Ok(())
 }
