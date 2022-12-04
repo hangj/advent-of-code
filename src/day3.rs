@@ -7,13 +7,13 @@ struct Priority(u8);
 
 /// 'a' -> 1
 /// 'A' -> 27
-impl From<&char> for Priority {
-    fn from(c: &char) -> Self {
+impl From<char> for Priority {
+    fn from(c: char) -> Self {
         Priority(
             if c.is_lowercase() {
-                *c as u8 - 'a' as u8 + 1
+                c as u8 - 'a' as u8 + 1
             } else {
-                *c as u8 - 'A' as u8 + 27
+                c as u8 - 'A' as u8 + 27
             })
     }
 }
@@ -38,7 +38,7 @@ pub fn day3(path: &PathBuf) -> std::io::Result<()> {
 
                 let priority = compartment1
                     .intersection(compartment2)
-                    .map(|c| Priority::from(c))
+                    .map(|c| Priority::from(*c))
                     .reduce(|acc, u| Priority(acc.0 + u.0) );
 
                 sum_priority += if let Some(p) = priority {
@@ -77,7 +77,7 @@ pub fn day3(path: &PathBuf) -> std::io::Result<()> {
                     .intersection(&lines[2]
                         .chars()
                         .collect::<HashSet<char>>())
-                    .map(|c| Priority::from(c))
+                    .map(|c| Priority::from(*c))
                     .reduce(|acc, c| Priority(acc.0 + c.0) );
                 match priority {
                     Some(p) => {
