@@ -6,6 +6,7 @@ mod day5;
 mod day6;
 mod day7;
 mod day8;
+mod day9;
 
 
 
@@ -28,5 +29,6 @@ fn main() {
     // day5::day5(&filename.into()).unwrap();
     // day6::day6(&filename.into()).unwrap();
     // day7::day7(&filename.into()).unwrap();
-    day8::day8(&filename.into()).unwrap();
+    // day8::day8(&filename.into()).unwrap();
+    day9::day9(&filename.into()).unwrap();
 }
